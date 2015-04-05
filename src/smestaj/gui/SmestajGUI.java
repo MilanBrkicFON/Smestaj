@@ -27,6 +27,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JMenuItem;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class SmestajGUI extends JFrame {
 
@@ -49,10 +53,28 @@ public class SmestajGUI extends JFrame {
 	private JPanel VilePanel;
 	private JButton ReturnH;
 	private JButton returnA;
-	private JButton button_1;
+	private JButton returnV;
 	private JLabel lblHoteli;
 	private JLabel lblApartmani_1;
 	private JLabel lblVile_1;
+	private JList listaHotela;
+	private JButton AddHoteli;
+	private JButton removeHoteli;
+	private JButton PronadjiHotel;
+	private JTextField textHotel;
+	private JScrollPane scrollPaneHotel;
+	private JList listaApartmana;
+	private JButton removeApartman;
+	private JButton addApartman;
+	private JButton PronadjiApartman;
+	private JTextField textApartman;
+	private JScrollPane scrollPaneApartman;
+	private JList listaVila;
+	private JButton removeVila;
+	private JButton addVila;
+	private JButton pronadjiVilu;
+	private JTextField textVila;
+	private JScrollPane scrollPaneVila;
 
 	/**
 	 * Launch the application.
@@ -236,6 +258,12 @@ public class SmestajGUI extends JFrame {
 			HoteliPanel.setLayout(null);
 			HoteliPanel.add(getReturnH());
 			HoteliPanel.add(getLblHoteli());
+			HoteliPanel.add(getListaHotela());
+			HoteliPanel.add(getAddHoteli());
+			HoteliPanel.add(getRemoveHoteli());
+			HoteliPanel.add(getPronadjiHotel());
+			HoteliPanel.add(getTextHotel());
+			HoteliPanel.add(getScrollPaneHotel());
 			HoteliPanel.setVisible(false);
 		}
 		return HoteliPanel;
@@ -247,6 +275,12 @@ public class SmestajGUI extends JFrame {
 			ApartmaniPanel.setLayout(null);
 			ApartmaniPanel.add(getReturnA());
 			ApartmaniPanel.add(getLblApartmani_1());
+			ApartmaniPanel.add(getListaApartmana());
+			ApartmaniPanel.add(getRemoveApartman());
+			ApartmaniPanel.add(getAddApartman());
+			ApartmaniPanel.add(getPronadjiApartman());
+			ApartmaniPanel.add(getTextApartman());
+			ApartmaniPanel.add(getScrollPaneApartman());
 			ApartmaniPanel.setVisible(false);
 		}
 		return ApartmaniPanel;
@@ -256,8 +290,14 @@ public class SmestajGUI extends JFrame {
 			VilePanel = new JPanel();
 			VilePanel.setBackground(new Color(0, 0, 102));
 			VilePanel.setLayout(null);
-			VilePanel.add(getButton_1());
+			VilePanel.add(getReturnV());
 			VilePanel.add(getLblVile_1());
+			VilePanel.add(getListaVila());
+			VilePanel.add(getRemoveVila());
+			VilePanel.add(getAddVila());
+			VilePanel.add(getPronadjiVilu());
+			VilePanel.add(getTextVila());
+			VilePanel.add(getScrollPaneVila());
 			VilePanel.setVisible(false);
 		}
 		return VilePanel;
@@ -290,19 +330,19 @@ public class SmestajGUI extends JFrame {
 		}
 		return returnA;
 	}
-	private JButton getButton_1() {
-		if (button_1 == null) {
-			button_1 = new JButton("");
-			button_1.addActionListener(new ActionListener() {
+	private JButton getReturnV() {
+		if (returnV == null) {
+			returnV = new JButton("");
+			returnV.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					VilePanel.setVisible(false);
 					CentarPanel.setVisible(true);
 				}
 			});
-			button_1.setIcon(new ImageIcon(SmestajGUI.class.getResource("/com/sun/javafx/scene/control/skin/caspian/fxvk-backspace-button.png")));
-			button_1.setBounds(10, 10, 36, 35);
+			returnV.setIcon(new ImageIcon(SmestajGUI.class.getResource("/com/sun/javafx/scene/control/skin/caspian/fxvk-backspace-button.png")));
+			returnV.setBounds(10, 10, 36, 35);
 		}
-		return button_1;
+		return returnV;
 	}
 	private JLabel getLblHoteli() {
 		if (lblHoteli == null) {
@@ -335,5 +375,147 @@ public class SmestajGUI extends JFrame {
 			lblVile_1.setBounds(124, 10, 181, 35);
 		}
 		return lblVile_1;
+	}
+	private JList getListaHotela() {
+		if (listaHotela == null) {
+			listaHotela = new JList();
+			listaHotela.setBounds(10, 109, 181, 221);
+		}
+		return listaHotela;
+	}
+	private JButton getAddHoteli() {
+		if (AddHoteli == null) {
+			AddHoteli = new JButton("");
+			AddHoteli.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\add_service.gif"));
+			AddHoteli.setBounds(201, 247, 39, 35);
+		}
+		return AddHoteli;
+	}
+	private JButton getRemoveHoteli() {
+		if (removeHoteli == null) {
+			removeHoteli = new JButton("");
+			removeHoteli.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\Remove.gif"));
+			removeHoteli.setBounds(201, 293, 39, 35);
+		}
+		return removeHoteli;
+	}
+	private JButton getPronadjiHotel() {
+		if (PronadjiHotel == null) {
+			PronadjiHotel = new JButton("");
+			PronadjiHotel.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\search.gif"));
+			PronadjiHotel.setBounds(201, 70, 39, 28);
+		}
+		return PronadjiHotel;
+	}
+	private JTextField getTextHotel() {
+		if (textHotel == null) {
+			textHotel = new JTextField();
+			textHotel.setToolTipText("");
+			textHotel.setText("Prona\u0111i hotel...");
+			textHotel.setBounds(10, 70, 181, 28);
+			textHotel.setColumns(10);
+		}
+		return textHotel;
+	}
+	private JScrollPane getScrollPaneHotel() {
+		if (scrollPaneHotel == null) {
+			scrollPaneHotel = new JScrollPane();
+			scrollPaneHotel.setBounds(318, 70, 203, 260);
+		}
+		return scrollPaneHotel;
+	}
+	private JList getListaApartmana() {
+		if (listaApartmana == null) {
+			listaApartmana = new JList();
+			listaApartmana.setBounds(10, 109, 181, 221);
+		}
+		return listaApartmana;
+	}
+	private JButton getRemoveApartman() {
+		if (removeApartman == null) {
+			removeApartman = new JButton("");
+			removeApartman.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\Remove.gif"));
+			removeApartman.setBounds(201, 295, 39, 35);
+		}
+		return removeApartman;
+	}
+	private JButton getAddApartman() {
+		if (addApartman == null) {
+			addApartman = new JButton("");
+			addApartman.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\add_service.gif"));
+			addApartman.setBounds(201, 249, 39, 35);
+		}
+		return addApartman;
+	}
+	private JButton getPronadjiApartman() {
+		if (PronadjiApartman == null) {
+			PronadjiApartman = new JButton("");
+			PronadjiApartman.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\search.gif"));
+			PronadjiApartman.setBounds(201, 69, 39, 28);
+		}
+		return PronadjiApartman;
+	}
+	private JTextField getTextApartman() {
+		if (textApartman == null) {
+			textApartman = new JTextField();
+			textApartman.setText("Prona\u0111i apartman...");
+			textApartman.setColumns(10);
+			textApartman.setBounds(10, 69, 181, 28);
+		}
+		return textApartman;
+	}
+	private JScrollPane getScrollPaneApartman() {
+		if (scrollPaneApartman == null) {
+			scrollPaneApartman = new JScrollPane();
+			scrollPaneApartman.setBounds(318, 70, 203, 260);
+		}
+		return scrollPaneApartman;
+	}
+	private JList getListaVila() {
+		if (listaVila == null) {
+			listaVila = new JList();
+			listaVila.setBounds(10, 110, 181, 221);
+		}
+		return listaVila;
+	}
+	private JButton getRemoveVila() {
+		if (removeVila == null) {
+			removeVila = new JButton("");
+			removeVila.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\Remove.gif"));
+			removeVila.setBounds(201, 296, 39, 35);
+		}
+		return removeVila;
+	}
+	private JButton getAddVila() {
+		if (addVila == null) {
+			addVila = new JButton("");
+			addVila.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\add_service.gif"));
+			addVila.setBounds(201, 250, 39, 35);
+		}
+		return addVila;
+	}
+	private JButton getPronadjiVilu() {
+		if (pronadjiVilu == null) {
+			pronadjiVilu = new JButton("");
+			pronadjiVilu.setIcon(new ImageIcon("D:\\workspace\\Smestaj\\src\\smestaj\\gui\\search.gif"));
+			pronadjiVilu.setBounds(201, 70, 39, 28);
+		}
+		return pronadjiVilu;
+	}
+	private JTextField getTextVila() {
+		if (textVila == null) {
+			textVila = new JTextField();
+			textVila.setText("Prona\u0111i vilu...");
+			textVila.setColumns(10);
+			textVila.setBounds(10, 70, 181, 28);
+		}
+		return textVila;
+	}
+	private JScrollPane getScrollPaneVila() {
+		if (scrollPaneVila == null) {
+			scrollPaneVila = new JScrollPane();
+			scrollPaneVila.setBounds(318, 71, 203, 260);
+		}
+		return scrollPaneVila;
 	}
 }
